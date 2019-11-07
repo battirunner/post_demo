@@ -5,7 +5,7 @@
   <div class="cover"  style="background-image: url('/storage/uploads/others/{{$admin_info->home_image}}')" >
     <div class="cover-btn">
       <!-- <img src="/assets/images/TOP_backgroundimg_sample.png" class="img-responsive"></img> -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-xs-4 text-center">
           <a href="/allposts?location=1"><img src="/assets/images/TOP03.png"></a>
         </div>
@@ -23,9 +23,20 @@
         <div class="col-xs-4 text-center">
           <a href="/allposts?location=5"><img src="/assets/images/TOP15.png"></a>
         </div>
-      </div>
+      </div> -->
       <div class="row">
-        <div class="col-xs-7 text-center">
+        <div class="col-xs-4 text-center form-group">
+          <!-- <a href="/allposts?location=5"><img src="/assets/images/TOP15.png"></a> -->
+          <select name="location" id="location" class="form-control" style="height: 45px;">
+            <option value=""> {{__('All')}} </option>
+            <option value="1" > 霧島・姶良 </option>
+            <option value="2" > 鹿児島 </option>
+            <option value="3" > 大隅・鹿屋 </option>
+            <option value="4" > 宮崎・都城 </option>
+            <option value="5" > 県外のお仕事 </option>
+          </select>
+        </div>
+        <div class="col-xs-4 text-center">
           <div class="wrap">
              <div class="search">
                 <input type="text" class="searchTerm" id="free_words" name="words" placeholder="フリーワード検索">
@@ -37,7 +48,7 @@
              </div>
           </div>
         </div>
-        <div class="col-xs-5 text-center">
+        <div class="col-xs-4 text-center">
           <div class="wrap">
              <div class="search">
                 <!-- <input type="text" class="searchTerm" placeholder="What are you looking for?" disabled> -->

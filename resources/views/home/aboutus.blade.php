@@ -20,7 +20,7 @@
         @include('homeinclude.topnavbar')
     {{-- TOP NAVBAR END --}}
     {{-- TOP BANNER --}}
-        @include('homeinclude.topbanner')
+    {{-- @include('homeinclude.topbanner') --}} 
     {{-- TOP BANNER END --}}
    
     {{-- ABOUT US --}}

@@ -90,9 +90,11 @@
 
                             <tr rowspan="3">
                             <td class="blue">{{__('Comment')}} </td>
-                            <td class="green"> <textarea row="7" type="text"  id="mytextarea" name="mytextarea" value="" style="width:100%; border-radius: 6px;"></textarea> </td>
+                            <td class="green"> <textarea row="7" type="text"  id="mytextarea" name="mytextarea" value="" style="width:100%; border-radius: 6px;"> asdnsdaj</textarea> </td>
                             </tr>
                             <input name="id" style="visibility:hidden;" value="{{$newsletter_edit->id}}" type="text" class="hidden" onchange="">
+                            <input name="content_edit" id="content_edit" style="visibility:hidden;" value="{{$newsletter_edit->newsletter_content}}" type="text" class="hidden" onchange="">
+                            
                             <input name="image[]" style="visibility:hidden;" type="file" id="upload" class="hidden" onchange="">
                             <tr rowspan="3">
                                 <td class="green wid12" colspan="2">
@@ -137,6 +139,16 @@
                                 '//www.tiny.cloud/css/codepen.min.css'
                             ]
                             });
+                            
+                            //THis is the function to show preloaded content in tinymce
+                            var content = document.getElementById('content_edit');
+                            function loadDefaultTinyMCEContent(){
+                                
+                                //CHange the content inside the setContent
+                                            tinyMCE.activeEditor.setContent(content.value);
+                                        }
+
+                            window.onload = loadDefaultTinyMCEContent;
                         </script>
                     </div>
                     @endif              

@@ -20,7 +20,7 @@
             @include('homeinclude.topnavbar')
         {{-- TOP NAVBAR END --}}
         {{-- TOP BANNER --}}
-            @include('homeinclude.topbanner')
+        {{-- @include('homeinclude.topbanner') --}}    
         {{-- TOP BANNER END --}}
         {{-- BANNER --}}
             @include('homeinclude.banner')
@@ -35,13 +35,14 @@
     @section('extraJS')
             <script>
                  
-                var check = document.getElementById("free_words"); 
+                var check = document.getElementById("free_words");
+                var location_id= document.getElementById("location"); 
                 var hlink = document.getElementById("url_1");
                 var url = location.pathname+location.search+'/allposts?words='+check.value;
                 function myf()
                 {
                     // alert(location.pathname+location.search+'&&words='+check.value);
-                    hlink.setAttribute('href', location.pathname+location.search+'allposts?locations=&words='+check.value);
+                    hlink.setAttribute('href', location.pathname+location.search+'allposts?locations='+location_id.value+'&words='+check.value);
                 }
 
                 function bannercheck()
