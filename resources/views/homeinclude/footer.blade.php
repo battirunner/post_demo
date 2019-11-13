@@ -14,8 +14,8 @@
           <a href="{{route('login')}}">{{__('Admin Portal')}}</a>
         </div>
         <div class="col-xs-4">
-          <b>{{__('TEL')}}: 0995-44-6285 <br>
-          {{__('FAX')}}: 0994-46-8275 <br>
+          <b>{{__('TEL')}}: 0000-00000-0000 <br>
+          {{__('FAX')}}: 00000-000-00000<br>
           {{__('MAIL')}}: contact@abc.com</b>
         </div>
       </div>

@@ -794,9 +794,63 @@ class AdminController extends Controller
     }
     public function editnewsletter()
     {   
-        $newsletter = Newsletter::where('id',request('id'))->get()->first();
-        $newsletter->main_title = request('main_title');
-        // $newsletter->
+        $images = request('mytextarea');
+        $lastPos = 0;
+        $firstPos = 0;
+        $needle = 'src="';
+        $needle2 = '" alt=""';
+        $firstpositions = array();
+        $lastpostions = array();
+        // $image_file = array();
+        $image_name = '';
+        $image_b64 = array();
+        $i=0;
+        while (($firstPos = strpos($images, $needle, $firstPos))!== false) 
+        {
+            $firstpositions[] = $firstPos;
+            $firstPos = $firstPos + strlen($needle);
+            $lastPos = strpos($images, $needle2, $lastPos);
+            $lastpositions[] = $lastPos; 
+            $lastPos = $lastPos + strlen($needle2);
+            $firstpositions[$i]+=strlen($needle);
+            $image_b64[$i] = substr($images,$firstpositions[$i],$lastpositions[$i]-$firstpositions[$i]);
+            // dd($image_b64[$i]);
+            $image_file = $image_b64[$i];
+            list($type, $image_file) = explode(';', $image_file);
+            list(, $image_file)      = explode(',', $image_file);
+            list(, $type) = explode('/',$type);
+            // dd($type);
+            $image = base64_decode($image_file);
+        
+                
+                $filename = uniqid('img_') . "." . $type;
+                
+                $path = public_path() . '/uploads/test/' . $filename;
+   
+                // $path = $image->storeas('public/uploads/test',$filename);
+    
+    
+                file_put_contents($path, $image);
+            $images = substr_replace($images,'/uploads/test/' . $filename,$firstpositions[$i],$lastpositions[$i]-$firstpositions[$i]);
+
+            $image_name = $image_name.','.$filename;
+            // dd($images);
+            $i++;
+            
+        }
+        $image_name = ltrim(',',$image_name);
+        // dd($images);
+        $news = Newsletter::where('id',request('edit'))->get()->first();
+        $news->main_title = request('main_title');
+        $news->newsletter_heading = request('main_title');
+        $news->newsletter_content = $images;
+        $news->priority = 1;
+        $news->images_string = $image_name;
+        $news->images_count = $i;
+        $news->save();
+        // dd($images);
+        // dd($imagefile);
+        return redirect()->route('shownewsletter');
         
     }
     

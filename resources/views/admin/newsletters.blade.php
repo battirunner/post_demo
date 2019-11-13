@@ -6,7 +6,7 @@
 @section('content')
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="#"><i><img src="/assets/images/TOP44.png" alt=""></i> </a>
+            <a class="navbar-brand" href="#"><i><img src="/assets/images/TOP44.png" style="width:120px; height: 90px;" alt=""></i> </a>
             <button onclick="myFunction()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -72,7 +72,7 @@
                 <div class="row">
                     @if(request('edit'))  
                     <div class="col-sm-9">
-                        <form action="{{route('admin.addnewsletter')}}" method="POST">
+                        <form action="{{route('admin.editnewsletter')}}" method="POST">
                             @csrf
                             <h4> &nbsp &nbsp {{__('Contact from companies')}} </h4>
                             <table class="content table table-bordered nltable">

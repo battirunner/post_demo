@@ -63,9 +63,9 @@
                 <div class="container">       
                     <ul class="content">
                         <div class="row">
-                            <div class ="col-md-2 col-xs-12">  
+                            <div class ="col-md-2 col-xs-12 form-group">  
                                 <label for="city_tag">{{__('Chooese Location')}}</label>
-                                <select name="location">
+                                <select name="location" id="location" class="form-control">
                                     <option value=""> {{__('All')}} </option>
                                     <option value="1" {{ request('location')==1 ? 'selected': '' }}> 霧島・姶良 </option>
                                     <option value="2" {{ request('location')==2 ? 'selected': '' }}> 鹿児島 </option>
@@ -77,7 +77,7 @@
                             <div class ="col-md-3 col-xs-12">
                                 <label for="city_tag"></label>
                                 <span class="search">
-                                    <input type="text" id="free_words" name="free_words" class="searchTerm" placeholder="フリーワード検索">
+                                    <input type="text" id="free_words" name="free_words" value="{{request('words')}}" class="searchTerm" placeholder="フリーワード検索">
                                     <a href="" id="url_1">
                                     <button type="submit" class="searchButton" onclick="myf()">
                                         <span class="glyphicon glyphicon-search"></span>
@@ -116,11 +116,11 @@
     <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
             <script>
                  
-                var check = document.getElementById("free_words"); 
+                // var check = document.getElementById("free_words"); 
                 var hlink = document.getElementById("url_1");
                 var str = location.pathname+location.search;
                 
-                var location_cat = get('location');
+                // var location_cat = get('location');
                 var words = get('words');
                 function get(name)
                 {
@@ -139,7 +139,12 @@
                 {
                     // alert(location.pathname);
                     // alert(url+check.value);
-                    hlink.setAttribute('href', url+check.value);
+                    // hlink.setAttribute('href', url+check.value);
+
+                    var check = document.getElementById("free_words");
+                var location_id = document.getElementById("location"); 
+
+                    hlink.setAttribute('href', location.pathname+'?location='+location_id.value+'&words='+check.value);
                 }
             </script>
     @endsection

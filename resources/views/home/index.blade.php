@@ -42,7 +42,7 @@
                 function myf()
                 {
                     // alert(location.pathname+location.search+'&&words='+check.value);
-                    hlink.setAttribute('href', location.pathname+location.search+'allposts?locations='+location_id.value+'&words='+check.value);
+                    hlink.setAttribute('href', location.pathname+location.search+'allposts?location='+location_id.value+'&words='+check.value);
                 }
 
                 function bannercheck()

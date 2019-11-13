@@ -5,7 +5,7 @@
             <a href="shownewsletter"><li class="menu-icon"><img src="/assets/images/TOP28.png" class="img-responsive"></li></a>
             <a href="pricelist"><li class="menu-icon"><img src="/assets/images/TOP30.png" class="img-responsive"></li></a>
             <a href="contactus"><li class="menu-icon"><img src="/assets/images/TOP32.png" class="img-responsive"></li></a>
-            <a href="allposts"><li class="menu-icon"><img src="/assets/images/TOP34.png" class="img-responsive"></li></a>
+            <!-- <a href="allposts"><li class="menu-icon"><img src="/assets/images/TOP34.png" class="img-responsive"></li></a> -->
             <a href="application"><li class="menu-icon"><img src="/assets/images/TOP36.png" class="img-responsive"></li></a>
         </ul>
         

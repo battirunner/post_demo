@@ -58,12 +58,22 @@
                     @else
                         <h4 id="area_name" style="color:white;background-color: green;padding:10px;margin-top:0px;width:400px;border-radius:15px;" >{{__('Post For All Area')}}</h4>
                     @endif
-                    <ul class="apb-holder">
-                        <a href="/allposts?location=1"><li class="all-post-btn"> <img src="/assets/images/TOP03.png" class="img-responsive"> </li></a>
+                    <ul class="apb-holder form-group">
+                        <!-- <a href="/allposts?location=1"><li class="all-post-btn"> <img src="/assets/images/TOP03.png" class="img-responsive"> </li></a>
                         <a href="/allposts?location=2"><li class="all-post-btn"> <img src="/assets/images/TOP05.png" class="img-responsive"> </li></a>
                         <a href="/allposts?location=3"><li class="all-post-btn"> <img src="/assets/images/TOP07.png" class="img-responsive"> </li></a>
                         <a href="/allposts?location=4"><li class="all-post-btn"> <img src="/assets/images/TOP13.png" class="img-responsive"> </li></a>
-                        <a href="/allposts?location=5"><li class="all-post-btn"> <img src="/assets/images/TOP15.png" class="img-responsive"> </li></a>
+                        <a href="/allposts?location=5"><li class="all-post-btn"> <img src="/assets/images/TOP15.png" class="img-responsive"> </li></a> -->
+                        <li>
+                        <select name="location" id="location" class="form-control" style="width:200px;height: 45px;">
+                            <option value=""> {{__('All')}} </option>
+                            <option value="1" {{ request('location')==1 ? 'selected': '' }} > 霧島・姶良 </option>
+                            <option value="2" {{ request('location')==2 ? 'selected': '' }} > 鹿児島 </option>
+                            <option value="3" {{ request('location')==3 ? 'selected': '' }} > 大隅・鹿屋 </option>
+                            <option value="4" {{ request('location')==4 ? 'selected': '' }} > 宮崎・都城 </option>
+                            <option value="5" {{ request('location')==5 ? 'selected': '' }} > 県外のお仕事 </option>
+                        </select>
+                        </li>
                         <!-- <li class="all-post-btn"> 
                             <span class="search">
                                 <input type="text" id="free_words" class="searchTerm" placeholder="What are you looking for?">
@@ -80,11 +90,11 @@
                                 </button>
                                 </span>
                         </li> -->
-                    </ul>
-                    <ul class="apb-holder">
+                    <!-- </ul>
+                    <ul class="apb-holder"> -->
                         <li class="all-post-btn"> 
                             <span class="search">
-                                <input type="text" id="free_words" class="searchTerm" placeholder="フリーワード検索">
+                                <input type="text" id="free_words" value="{{request('words')}}" class="searchTerm" placeholder="フリーワード検索">
                                 <a href="" id="url_1" style="color:white;">
                                 <button type="submit" class="searchButton" onclick="myf()">
                                     <span class="glyphicon glyphicon-search"></span>
@@ -120,11 +130,12 @@
 @section('extraJS')
             <script>
                  
-                var check = document.getElementById("free_words"); 
+                // var check = document.getElementById("free_words");
+                // var location_cat = document.getElementById("location"); 
                 var hlink = document.getElementById("url_1");
                 var str = location.pathname+location.search;
                 
-                var location_cat = get('location');
+                // var location_cat = get('location');
                 var words = get('words');
                 function get(name)
                 {
@@ -133,7 +144,8 @@
                 }
                 if(location_cat)
                 {
-                    var url =location.pathname+'?location='+location_cat+'&words='+check.value;
+                    
+                    var url =location.pathname+'?location='+location_cat.value+'&words='+check.value;
                 }
                 else if(words)
                 {
@@ -148,7 +160,12 @@
                 {
                     // alert(location.pathname);
                     // alert(url+check.value);
-                    hlink.setAttribute('href', url+check.value);
+                    // hlink.setAttribute('href', url+check.value);
+
+                    var check = document.getElementById("free_words");
+                var location_id = document.getElementById("location"); 
+
+                    hlink.setAttribute('href', location.pathname+'?location='+location_id.value+'&words='+check.value);
                 }
             </script>
 
