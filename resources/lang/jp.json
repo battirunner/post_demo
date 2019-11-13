@@ -148,6 +148,10 @@
     "Password": "パスワード",
     "Remember Me": "ログインを保持する",
     "Post For All Area": "全てのエリア",
+    "write something and press enter to convert into tag": "タグを入力",
+    "Google Map Embeded Link": "マップリンクの貼付",
+    "Show Location in Map": "勤務地",
+    "Show Map": "地図を開く",
+    "No Information for Map": "地図が登録されていません",
     "You Are Already Logged In": "ログイン中"
-
 }
